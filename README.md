@@ -1,15 +1,10 @@
 # 졸작용 REST API Server
 
-Application Framework  : Spring 5 <br>
-Web Application Server : Tomcat 9 (will be replaced by Wildfly)<br>
-Web Server			   : Nginx (just for reverse proxy)<br>
+졸업 작품용 REST api 서버입니다.
 
 이걸 왜 혼자 만들고 있는지는 모르겟음 ㅂㄷㅂㄷ
 
-DB : MySQL  
+ ** + 개발일지 목록**  
+ [개발일지](./docs/개발일지/)
 
-
--- Others.. 
-Mybatis
-
-... rest will be added
+ 
