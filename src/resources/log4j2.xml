@@ -8,21 +8,21 @@
 		</layout>
 	</appender> -->
 	
-	<Appenders>
+	<!-- <Appenders>
 		<Console name="console" target="SYSTEM_OUT">
 			<PatternLayout  pattern="%d %5p [%c]%m%n"/>
 		</Console>
-	</Appenders>
+	</Appenders> -->
 	
 	<!-- Application Loggers -->
- 	<Loggers>
+ 	<!-- <Loggers>
 	 	<Logger name="[Logger명]" level="DEBUG" additivity="false">
 	 		<AppenderRef ref="console"/>
 	 	</Logger>
- 	</Loggers>
+ 	</Loggers> -->
  	
 	<!-- Root Logger -->
-	<Root level="ERROR">
+	<!-- <Root level="ERROR">
 		<AppenderRef ref="console"/>
-	</Root>
+	</Root> -->
 </Configuration>
