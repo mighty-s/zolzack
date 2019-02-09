@@ -1,28 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration>
-	<!-- Appenders -->
-	<!-- <appender name="console" class="org.apache.log4j.ConsoleAppender">
-		<param name="Target" value="System.out" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
-		</layout>
-	</appender> -->
+<Configuration status="WARN" name="zolzack">
+	<Properties>
+		<Property name="app-name">zolzack</Property>
+		<Property name="log-path">D:\졸작 프로젝트\3. 개발\logs</Property>
+		<Property name="log-pattern">[%6level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Property>
+		<Property name="file-name">${log-path}/${app-name}</Property>
+		<Property name="file-pattern">${file-name}-%d{yyyy-MM-dd}</Property>
+	</Properties>
 	
-	<!-- <Appenders>
-		<Console name="console" target="SYSTEM_OUT">
-			<PatternLayout  pattern="%d %5p [%c]%m%n"/>
-		</Console>
-	</Appenders> -->
+	<!-- Appenders -->
+	<Appenders>
+		<Console name="congole-log" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>
+                	<Pattern>${log-pattern}</Pattern>
+                </pattern>
+            </PatternLayout>
+        </Console>
+	
+		<RollingRandomAccessFile name="info-log" append="true" 
+			ignoreExceptions="false" immediateFlush="false"  
+			fileName="${file-pattern}-info.log"
+			filePattern="${file-pattern}">
+		
+			<PatternLayout>
+				<Pattern>${log-pattern}</Pattern>
+			</PatternLayout>
+			<Policies>
+	        	<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+	      	</Policies>
+		</RollingRandomAccessFile>
+		
+		<RollingRandomAccessFile name="debug-log" append="true" 
+			ignoreExceptions="false" immediateFlush="false"  
+			fileName="${file-pattern}-deug.log"
+			filePattern="${file-pattern}">
+			
+			<PatternLayout>
+				<Pattern>${log-pattern}</Pattern>
+			</PatternLayout>
+			<Policies>
+	        	<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+	      	</Policies>
+		</RollingRandomAccessFile>
+		
+		<RollingRandomAccessFile name="error-log" append="true" 
+			ignoreExceptions="false" immediateFlush="false"  
+			fileName="${file-pattern}-error.log"
+			filePattern="${file-pattern}">
+			
+			<PatternLayout>
+				<Pattern>${log-pattern}</Pattern>
+			</PatternLayout>
+			<Policies>
+	        	<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+	      	</Policies>
+		</RollingRandomAccessFile>
+	</Appenders>
 	
 	<!-- Application Loggers -->
- 	<!-- <Loggers>
-	 	<Logger name="[Logger명]" level="DEBUG" additivity="false">
-	 		<AppenderRef ref="console"/>
+	<Loggers>
+		 	
+	 	<Logger name="app-info" level="INFO" additivity="false">
+	 		<AppenderRef ref="info-log"/>
 	 	</Logger>
- 	</Loggers> -->
- 	
-	<!-- Root Logger -->
-	<!-- <Root level="ERROR">
-		<AppenderRef ref="console"/>
-	</Root> -->
+	 	
+	 	<Logger name="app-debug" level="DEBUG" additivity="false">
+	 		<AppenderRef ref="debug-log"/>
+	 	</Logger>
+	 	
+	 	<Logger name="app-error" level="ERROR" additivity="false">
+	 		<AppenderRef ref="error-log"/>
+	 	</Logger>
+	 	
+	 	<Logger name="app-console" level="DEBUG" additivity="false">
+	 		<AppenderRef ref="congole-log"/>
+	 	</Logger>
+	 	
+	 	<!-- Root Logger -->
+		<Root level="DEBUG">
+			<AppenderRef ref="congole-log"/>
+		</Root>
+	 	
+ 	</Loggers>
 </Configuration>
