@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.common.collection.VO;
+import com.common.collection.CommonVO;
 import com.common.controller.CommonController;
 
 /**
@@ -23,7 +23,7 @@ public class HomeController extends CommonController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/index.do", method = RequestMethod.GET)
-	public ModelAndView home(@ModelAttribute("defaultVO") VO vo, Locale locale) {
+	public ModelAndView home(@ModelAttribute("defaultVO") CommonVO vo, Locale locale) {
 		ModelAndView mav = new ModelAndView("home");
 		
 		Date date = new Date();

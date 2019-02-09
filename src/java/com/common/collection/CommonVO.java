@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+
 /**
  * <pre>
  * HashMap 기반의 commonVO
@@ -12,7 +14,8 @@ import java.util.Optional;
  * @author  Dong-Min Seol 
  * @since	2019.02.03
  */
-public class VO extends HashMap<String, Object> {
+@Component
+public class CommonVO extends HashMap<String, Object> {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -21,7 +24,7 @@ public class VO extends HashMap<String, Object> {
 	 * default 생성자
 	 * </pre>
 	 */
-	public VO() {
+	public CommonVO() {
 		super();
 	}
 	
@@ -33,7 +36,7 @@ public class VO extends HashMap<String, Object> {
 	 * @author  Dong-Min Seol
 	 * @since   2019.02.03
 	 */
-	public <E> VO (Map<String, Object> map) {
+	public <E> CommonVO (Map<String, Object> map) {
 		map.forEach(this::put);
 	}
 	

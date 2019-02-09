@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.common.collection.VO;
+import com.common.collection.CommonVO;
 
 /**
  * Controller 호출 전 Handler를 통해 
@@ -28,7 +28,7 @@ public class FrontInterceptor extends HandlerInterceptorAdapter {
 	 */
 	@Override
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler) throws Exception {
-		VO vo = new VO();
+		CommonVO vo = new CommonVO();
 		Map<String, String[]> requestMap = req.getParameterMap();
 		
 		// [1] VO Setting
