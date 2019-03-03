@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.common.collection.CommonVO;
@@ -16,6 +17,7 @@ import com.common.collection.CommonVO;
  * @author Dong-Min Seol
  * @since  2019.02.03
  */
+@Controller
 public class FrontInterceptor extends HandlerInterceptorAdapter {
 
 	/**
@@ -42,8 +44,7 @@ public class FrontInterceptor extends HandlerInterceptorAdapter {
 		});
 		
 		// [2] 필요정보 aBox객체에 저장함
-		//vo.put("remoteHost"  , req.getRemoteHost()); // Client의 Host
-		vo.put("remoteAddr"  , getIP(req)); // Client의 Host IP
+		
 		vo.put("remoteURI"   , req.getRequestURI()); // Client가 요청한 URI
 		vo.put("remoteMethod", req.getMethod());     // Client가 요청한 Method (GET, POST, PUT, DELETE)
 		
