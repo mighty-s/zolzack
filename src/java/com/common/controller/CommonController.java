@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.common.collection.VO;
+import com.common.collection.CommonLog;
+import com.common.collection.CommonVO;
 
 @Controller
 public class CommonController {
@@ -18,11 +19,13 @@ public class CommonController {
 	@Autowired
 	HttpSession session;
 	
+	@Autowired
+	CommonLog log;
+	
 	@ModelAttribute("defaultVO")
-	public VO initBoxs() {
+	public CommonVO initBoxs() {
 
-		return (VO) req.getAttribute("defaultVO");
-
+		return (CommonVO) req.getAttribute("defaultVO");
 	}
 	
 }
